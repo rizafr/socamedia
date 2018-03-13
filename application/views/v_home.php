@@ -4,7 +4,7 @@
 
 <section class="features3 cid-qLBcGxRbYn" id="features3-j">
 	<div class="container">
-		<div class="media-container-row">
+		<div class="row">
 			<?php
 				foreach ($post->result_array() as $j) :
 					$post_id=$j['tulisan_id'];
@@ -15,7 +15,7 @@
 					$post_tglpost=$j['tanggal'];
 					$post_slug=$j['tulisan_slug'];
 			?>
-			<div class="card p-3 col-12 col-md-6 col-lg-4">
+			<div class="card p-3 col-12 col-md-6 col-lg-3">
 				<div class="card-wrapper">
 					<div class="card-img">
 						<img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Mobirise" title="">

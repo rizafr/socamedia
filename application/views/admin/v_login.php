@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>M-Techno | Log in</title>
+  <title>Socamedia | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/favicon.png'?>">
@@ -25,7 +25,7 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg"> <img src="<?php echo base_url().'assets/images/mylogo.png'?>"></p><hr/>
+    <h1 class="login-box-msg"> Socamedia </h1><hr/>
 
     <form action="<?php echo base_url().'administrator/auth'?>" method="post">
       <div class="form-group has-feedback">
