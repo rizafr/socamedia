@@ -19,11 +19,14 @@
                         <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Mobirise">
                     </div>
                     <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style display-7">
+                        <h4 class="card-title mbr-fonts-style display-7" style="margin-bottom: 0">
                             <?php echo $post_judul;?>
                         </h4>
-                        <p class="mbr-text mbr-fonts-style display-7">
-                            <?php echo limit_words($post_isi,20).'...';?>
+                        <p class="mbr-text mbr-fonts-style display-7" style="padding-top: 5px">
+                            <?php echo $post_tglpost.' | '.$post_author;?>
+                        </p>
+                        <p class="mbr-text mbr-fonts-style display-7" style="padding-top: 5px">
+                            <?php echo limit_words($post_isi,15).'...';?>
                         </p>
                     </div>
                     <div class="mbr-section-btn text-center">

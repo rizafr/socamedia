@@ -1,9 +1,9 @@
-<section class="features16 cid-qLBgVOmRTX" id="features16-w">
+<section class="features16 cid-qLBgVOmRTX" id="features16-w" style="padding-bottom: 30px; background-color: #f1f1f1">
     <div class="container align-center">
         <h2 class="pb-3 mbr-fonts-style mbr-section-title display-2">
             Socamedia.id
         </h2>
-        <div class="pb-5 mbr-section-subtitle mbr-fonts-style mbr-light display-5">
+        <div class="pb-5 mbr-section-subtitle mbr-fonts-style mbr-light display-5 text-left">
             <p>Woah hold on a sec…</p>
             <p>Do you really want to know what is Socamedia.id truly is? If yes, please stay still until the very end of this paragraph :)</p>
             <p>Okay so, where do I begin? Oh yeah with this story...</p>
@@ -34,7 +34,8 @@
 	           $pengguna_password=$i['pengguna_password'];
 	           $pengguna_nohp=$i['pengguna_nohp'];
 	           $pengguna_level=$i['pengguna_level'];
-	           $pengguna_photo=$i['pengguna_photo'];
+               $pengguna_photo=$i['pengguna_photo'];
+	           $pengguna_linkdin=$i['pengguna_linkdin'];
 	        ?>
             <div class="team-item col-lg-3 col-md-6">
                 <div class="item-image">
@@ -54,23 +55,8 @@
 	                  	<?php endif;?>
                     </div>
                     <div class="item-social pt-2">
-                        <a href="https://twitter.com/mobirise" target="_blank">
-                            <span class="p-1 socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
-                        </a>
-                        <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
-                            <span class="p-1 socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
-                        </a>
-                        <a href="https://plus.google.com/u/0/+Mobirise" target="_blank">
-                            
-                        </a>
-                        <a href="https://www.linkedin.com/in/mobirise" target="_blank">
-                            
-                        </a>
-                        <a href="https://www.instagram.com/mobirise/" target="_blank">
-                            
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCt_tncVAetpK5JeM8L-8jyw" target="_blank">    
-                            
+                        <a href="<?= $pengguna_linkdin;?>" target="_blank">
+                            <span class="p-1 socicon-linkedin socicon mbr-iconfont mbr-iconfont-social"></span>
                         </a>
                     </div>
                 </div>

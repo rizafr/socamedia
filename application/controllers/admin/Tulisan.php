@@ -54,7 +54,7 @@ class Tulisan extends CI_Controller{
 							$judul=strip_tags($this->input->post('xjudul'));
 							$filter=str_replace("?", "", $judul);
 							$filter2=str_replace("$", "", $filter);
-							$pra_slug=$filter2.'.html';
+							$pra_slug=$filter2;
 							$slug=strtolower(str_replace(" ", "-", $pra_slug));
 							$isi=$this->input->post('xisi');
 							$kategori_id=strip_tags($this->input->post('xkategori'));
@@ -109,7 +109,7 @@ class Tulisan extends CI_Controller{
 	                        $judul=strip_tags($this->input->post('xjudul'));
 	                        $filter=str_replace("?", "", $judul);
 							$filter2=str_replace("$", "", $filter);
-							$pra_slug=$filter2.'.html';
+							$pra_slug=$filter2;
 							$slug=strtolower(str_replace(" ", "-", $pra_slug));
 							$isi=$this->input->post('xisi');
 							$kategori_id=strip_tags($this->input->post('xkategori'));
@@ -135,7 +135,7 @@ class Tulisan extends CI_Controller{
 							$judul=strip_tags($this->input->post('xjudul'));
 							$filter=str_replace("?", "", $judul);
 							$filter2=str_replace("$", "", $filter);
-							$pra_slug=$filter2.'.html';
+							$pra_slug=$filter2;
 							$slug=strtolower(str_replace(" ", "-", $pra_slug));
 							$isi=$this->input->post('xisi');
 							$kategori_id=strip_tags($this->input->post('xkategori'));

@@ -21,14 +21,13 @@
 						<img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Mobirise" title="">
 					</div>
 					<div class="card-box">
-						<h4 class="card-title mbr-fonts-style display-4">
+						<h4 class="card-title mbr-fonts-style display-4" style="font-size: 18px;line-height: 20px">
 							<?php echo $post_judul;?>
-							<br>
 							<br>
 							<?php echo $post_tglpost.' | '.$post_author;?>
 						</h4>
-						<p class="mbr-text mbr-fonts-style display-4">
-							<?php echo limit_words($post_isi,20).'...';?>
+						<p class="mbr-text mbr-fonts-style display-4" style="padding-top: 5px">
+							<?php echo limit_words($post_isi,15).'...';?>
 						</p>
 					</div>
 					<div class="mbr-section-btn text-center">
