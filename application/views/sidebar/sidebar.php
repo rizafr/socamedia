@@ -2,7 +2,7 @@
 	<div class="sidebar">
 		<h4>KATEGORI</h4>
 
-		<div style="border-bottom: 1px #ccc solid;margin-top:-20px;margin-bottom:20px;"></div>
+		<div style="border-bottom: 1px #ccc solid;margin-bottom:20px;"></div>
 		<ul class="list-unstyled">
 			<?php foreach($kat->result() as $i):?>
 				<li><a href="<?php echo base_url().'blog/kategori/'.$i->kategori_id;?>"><?php echo $i->kategori_nama.' ('.$i->jml.')';?></a></li>
@@ -13,7 +13,7 @@
 	<br/>
 	<div class="sidebar">
 		<h4>ARTIKEL POPULER</h4>
-		<div style="border-bottom: 1px #ccc solid;margin-top:-20px;margin-bottom:20px;"></div>
+		<div style="border-bottom: 1px #ccc solid;margin-bottom:20px;"></div>
 		<?php foreach ($populer->result() as $row) : ?>
 			<div class="media">
 				<div class="media-left">
@@ -33,7 +33,7 @@
 
 	<div class="sidebar">
 		<h4>POST TERBARU</h4>
-		<div style="border-bottom: 1px #ccc solid;margin-top:-20px;margin-bottom:20px;"></div>
+		<div style="border-bottom: 1px #ccc solid;margin-bottom:20px;"></div>
 		<?php foreach ($terbaru->result() as $row) : ?>
 			<div class="media">
 				<div class="media-left">

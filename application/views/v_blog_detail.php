@@ -31,7 +31,7 @@ $rating=$b['tulisan_rating'];
 </aside>
 
 
-<div class="fh5co-pricing">
+<div class="fh5co-blog-container">
 	<div class="container">
 		<div class="row">
 

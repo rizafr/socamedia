@@ -14,8 +14,7 @@
                     Address
                 </h5>
                 <p class="mbr-text">
-                    1234 Street Name
-                    <br>City, AA 99999
+                    Jalan Venus Timur II No.3 Manjahlega, Rancasari Bandung
                 </p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
@@ -23,20 +22,13 @@
                     Contacts
                 </h5>
                 <p class="mbr-text">
-                    Email: support@mobirise.com
-                    <br>Phone: +1 (0) 000 0000 001
-                    <br>Fax: +1 (0) 000 0000 002
+                    Email: <a href="mailto: mail@socamedia.id"> mail@socamedia.id</a>
+                    <br>Phone: 08112113666
+                    <br>Office Hour: 09.00-17.00
                 </p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Links
-                </h5>
-                <p class="mbr-text">
-                    <a class="text-primary" href="https://mobirise.com/">Website builder</a>
-                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a>
-                    <br><a class="text-primary" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a>
-                </p>
+               
             </div>
         </div>
         <div class="footer-lower">
