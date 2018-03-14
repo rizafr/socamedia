@@ -8,6 +8,8 @@ class Home extends CI_Controller{
 	}
 	function index(){
 		$x['post']=$this->m_tulisan->get_post_home();
+		$x['populer']=$this->m_tulisan->get_tulisan_populer();
+		$x['terbaru']=$this->m_tulisan->get_tulisan_terbaru();
 		$this->load->view('template/v_header',$x);
 		$this->load->view('template/v_menu',$x);
 		$this->load->view('v_home',$x);

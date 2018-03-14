@@ -21,7 +21,6 @@ $rating=$b['tulisan_rating'];
 					<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
 						<div class="slider-text-inner">
 							<h2>Enjoy the Blog</h2>
-							<p class="fh5co-lead"> Awesome source code by <a href="http://mfikri.com/" target="_blank">M Fikri Setiadi</a></p>
 						</div>
 					</div>
 				</div>

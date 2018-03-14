@@ -4379,10 +4379,41 @@ body {
 .sidebar h4.media-heading {
     font-size: 18px;
     margin-bottom: 0;
-    margin-left: 5px;
+    margin-left: 15px;
+}
+
+.sidebar .media-body span {
+    margin-left: 15px;
 }
 
 .fh5co-blog-container {
     background: #f1f1f1;
     padding: 3em 0;
+}
+
+.title {
+    position: relative;
+    border-bottom: 1px solid #9b9b9b;
+}
+
+.title__content {
+    position: relative;
+    display: inline-block;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #4a4a4a;
+}
+
+.title__content::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 101%;
+    border-bottom: 5px solid #3ca5dd;
+}
+
+.detail-article figure {
+    margin-top: 15px;
 }
