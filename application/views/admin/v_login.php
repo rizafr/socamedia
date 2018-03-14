@@ -55,7 +55,7 @@
     
     <!-- /.social-auth-links -->
     <hr/>
-    <p><center>Copyright <?php echo '2017'?> by M Fikri Setiadi <br/> All Right Reserved</center></p>
+    <p><center>Copyright <?php echo '2017'?> Socamedia <br/> All Right Reserved</center></p>
   </div>
   <!-- /.login-box-body -->
 </div>
