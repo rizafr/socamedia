@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="<?php echo base_url().'assets-socamedia/dropdown/css/style.css'?>">
   <link rel="stylesheet" href="<?php echo base_url().'assets-socamedia/theme/css/style.css'?>">
   <link rel="stylesheet" href="<?php echo base_url().'assets-socamedia/mobirise/css/mbr-additional.css'?>" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato|Raleway" rel="stylesheet"> 
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>

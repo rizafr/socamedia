@@ -4,6 +4,12 @@ $query=$this->db->query("SELECT * FROM tbl_inbox WHERE inbox_status='1'");
 $jum_pesan=$query->num_rows();
 $query1=$this->db->query("SELECT * FROM tbl_komentar WHERE komentar_status='0'");
 $jum_komentar=$query1->num_rows();
+
+$level = [
+    1 => 'Administrator',
+    2 => 'Author',
+    3 => 'Advisor',
+];
 ?>
 <!DOCTYPE html>
 <html>
@@ -199,11 +205,9 @@ $jum_komentar=$query1->num_rows();
                                                 <?php endif;?>
                                                 <td><?php echo $pengguna_password;?></td>
                                                 <td><?php echo $pengguna_nohp;?></td>
-                                                <?php if($pengguna_level=='1'):?>
-                                                    <td>Administrator</td>
-                                                <?php else:?>
-                                                    <td>Author</td>
-                                                <?php endif;?>
+                                               <td>
+                                                    <?php echo $level[$pengguna_level];?>
+                                               </td>
                                                 <td style="text-align:right;">
                                                     <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $pengguna_id;?>"><span class="fa fa-pencil"></span></a>
                                                     <a class="btn" href="<?php echo base_url().'admin/pengguna/reset_password/'.$pengguna_id;?>"><span class="fa fa-refresh"></span></a>
@@ -298,9 +302,9 @@ $jum_komentar=$query1->num_rows();
                             </div>
                         </div>
                          <div class="form-group">
-                            <label for="inputFacebook" class="col-sm-4 control-label">Facebook</label>
+                            <label for="inputFacebook" class="col-sm-4 control-label">Pekerjaan</label>
                             <div class="col-sm-7">
-                                <input type="text" name="xfacebook" class="form-control" id="inputFacebook" placeholder="link facebook" required>
+                                <input type="text" name="xpengguna_tentang" class="form-control" id="inputFacebook" placeholder="Pekerjaan" required>
                             </div>
                         </div>
                          <div class="form-group">
@@ -312,10 +316,9 @@ $jum_komentar=$query1->num_rows();
                         <div class="form-group">
                             <label for="inputUserName" class="col-sm-4 control-label">Level</label>
                             <div class="col-sm-7">
-                                <select class="form-control" name="xlevel" required>
-                                    <option value="1">Administrator</option>
-                                    <option value="2">Author</option>
-                                </select>
+                                <?php
+                                    echo form_dropdown('xlevel', $level);
+                                ?>
                             </div>
                         </div>
                         <div class="form-group">
@@ -347,7 +350,7 @@ $jum_komentar=$query1->num_rows();
     $pengguna_nohp=$i['pengguna_nohp'];
     $pengguna_level=$i['pengguna_level'];
     $pengguna_photo=$i['pengguna_photo'];
-    $pengguna_facebook=$i['pengguna_facebook'];
+    $pengguna_tentang=$i['pengguna_tentang'];
     $pengguna_linkdin=$i['pengguna_linkdin'];
     ?>
     <!--Modal Edit Pengguna-->
@@ -425,15 +428,9 @@ $jum_komentar=$query1->num_rows();
                         <div class="form-group">
                             <label for="inputUserName" class="col-sm-4 control-label">Level</label>
                             <div class="col-sm-7">
-                                <select class="form-control" name="xlevel" required>
-                                    <?php if($pengguna_level=='1'):?>
-                                        <option value="1" selected>Administrator</option>
-                                        <option value="2">Author</option>
-                                    <?php else:?>
-                                        <option value="1">Administrator</option>
-                                        <option value="2" selected>Author</option>
-                                    <?php endif;?>
-                                </select>
+                                <?php
+                                    echo form_dropdown('xlevel', $level, $pengguna_level);
+                                ?>
                             </div>
                         </div>
                         <div class="form-group">
@@ -444,9 +441,9 @@ $jum_komentar=$query1->num_rows();
                         </div>
 
                         <div class="form-group">
-                            <label for="inputFacebook" class="col-sm-4 control-label">Facebook</label>
+                            <label for="inputFacebook" class="col-sm-4 control-label">Pekerjaan</label>
                             <div class="col-sm-7">
-                                <input type="text" name="xfacebook" class="form-control" id="inputFacebook" placeholder="link facebook" value="<?php echo $pengguna_facebook;?>" required>
+                                <input type="text" name="xpengguna_tentang" class="form-control" id="inputFacebook" placeholder="Pekerjaan" value="<?php echo $pengguna_tentang;?>" required>
                             </div>
                         </div>
                          <div class="form-group">

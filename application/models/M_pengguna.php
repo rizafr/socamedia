@@ -6,32 +6,55 @@ class M_pengguna extends CI_Model{
 		return $hsl;	
 	}
 
-	function simpan_pengguna($nama,$jenkel,$username,$password,$email,$nohp,$level,$gambar){
-		$hsl=$this->db->query("INSERT INTO tbl_pengguna (pengguna_nama,pengguna_jenkel,pengguna_username,pengguna_password,pengguna_email,pengguna_nohp,pengguna_level,pengguna_photo) VALUES ('$nama','$jenkel','$username',md5('$password'),'$email','$nohp','$level','$gambar')");
+	function simpan_pengguna(
+		$nama,$jenkel,$username,$password,$email,$nohp,$level,$gambar, $pengguna_tentang, $linkedIdn
+	){
+		$hsl=$this->db->query("INSERT INTO tbl_pengguna (pengguna_nama,pengguna_jenkel,pengguna_username,pengguna_password,pengguna_email,pengguna_nohp,pengguna_level,pengguna_photo, pengguna_tentang, pengguna_linkdin) VALUES ('$nama','$jenkel','$username',md5('$password'),'$email','$nohp','$level','$gambar', '$pengguna_tentang', '$linkedIdn')");
 		return $hsl;
 	}
 
-	function simpan_pengguna_tanpa_gambar($nama,$jenkel,$username,$password,$email,$nohp,$level){
-		$hsl=$this->db->query("INSERT INTO tbl_pengguna (pengguna_nama,pengguna_jenkel,pengguna_username,pengguna_password,pengguna_email,pengguna_nohp,pengguna_level) VALUES ('$nama','$jenkel','$username',md5('$password'),'$email','$nohp','$level')");
+	function simpan_pengguna_tanpa_gambar(
+		$nama,$jenkel,$username,$password,$email,$nohp,$level, $pengguna_tentang, $linkedIdn
+	){
+		$hsl=$this->db->query("INSERT INTO tbl_pengguna (pengguna_nama,pengguna_jenkel,pengguna_username,pengguna_password,pengguna_email,pengguna_nohp,pengguna_level, pengguna_tentang, pengguna_linkdin) VALUES ('$nama','$jenkel','$username',md5('$password'),'$email','$nohp','$level', '$pengguna_tentang', '$linkedIdn')");
 		return $hsl;
 	}
 
 	//UPDATE PENGGUNA //
-	function update_pengguna_tanpa_pass($kode,$nama,$jenkel,$username,$password,$email,$nohp,$level,$gambar){
-		$hsl=$this->db->query("UPDATE tbl_pengguna set pengguna_nama='$nama',pengguna_jenkel='$jenkel',pengguna_username='$username',pengguna_email='$email',pengguna_nohp='$nohp',pengguna_level='$level',pengguna_photo='$gambar' where pengguna_id='$kode'");
+	function update_pengguna_tanpa_pass(
+		$kode,$nama,$jenkel,$username,$password,$email,$nohp,$level,$gambar, $pengguna_tentang, $linkedIdn
+	){
+		$hsl=$this->db->query("UPDATE tbl_pengguna set pengguna_nama='$nama',pengguna_jenkel='$jenkel',pengguna_username='$username',pengguna_email='$email'
+			,pengguna_nohp='$nohp',pengguna_level='$level',pengguna_photo='$gambar',
+			pengguna_tentang='$pengguna_tentang', pengguna_linkdin='$linkedIdn'
+			where pengguna_id='$kode'");
 		return $hsl;
 	}
-	function update_pengguna($kode,$nama,$jenkel,$username,$password,$email,$nohp,$level,$gambar){
-		$hsl=$this->db->query("UPDATE tbl_pengguna set pengguna_nama='$nama',pengguna_jenkel='$jenkel',pengguna_username='$username',pengguna_password=md5('$password'),pengguna_email='$email',pengguna_nohp='$nohp',pengguna_level='$level',pengguna_photo='$gambar' where pengguna_id='$kode'");
+	function update_pengguna(
+		$kode,$nama,$jenkel,$username,$password,$email,$nohp,$level,$gambar, $pengguna_tentang, $linkedIdn
+	){
+		$hsl=$this->db->query("UPDATE tbl_pengguna set pengguna_nama='$nama',pengguna_jenkel='$jenkel',pengguna_username='$username',pengguna_password=md5('$password'),pengguna_email='$email',pengguna_nohp='$nohp',pengguna_level='$level',pengguna_photo='$gambar',
+			pengguna_tentang='$pengguna_tentang', pengguna_linkdin='$linkedIdn'
+			where pengguna_id='$kode'");
 		return $hsl;
 	}
 
-	function update_pengguna_tanpa_pass_dan_gambar($kode,$nama,$jenkel,$username,$password,$email,$nohp,$level){
-		$hsl=$this->db->query("UPDATE tbl_pengguna set pengguna_nama='$nama',pengguna_jenkel='$jenkel',pengguna_username='$username',pengguna_email='$email',pengguna_nohp='$nohp',pengguna_level='$level' where pengguna_id='$kode'");
+	function update_pengguna_tanpa_pass_dan_gambar(
+		$kode,$nama,$jenkel,$username,$password,$email,$nohp,$level, $pengguna_tentang, $linkedIdn
+	){
+		$hsl=$this->db->query("UPDATE tbl_pengguna set pengguna_nama='$nama',pengguna_jenkel='$jenkel',pengguna_username='$username',pengguna_email='$email',
+			pengguna_nohp='$nohp',pengguna_level='$level',
+			pengguna_tentang='$pengguna_tentang', pengguna_linkdin='$linkedIdn'
+			where pengguna_id='$kode'");
 		return $hsl;
 	}
-	function update_pengguna_tanpa_gambar($kode,$nama,$jenkel,$username,$password,$email,$nohp,$level){
-		$hsl=$this->db->query("UPDATE tbl_pengguna set pengguna_nama='$nama',pengguna_jenkel='$jenkel',pengguna_username='$username',pengguna_password=md5('$password'),pengguna_email='$email',pengguna_nohp='$nohp',pengguna_level='$level' where pengguna_id='$kode'");
+	function update_pengguna_tanpa_gambar(
+		$kode,$nama,$jenkel,$username,$password,$email,$nohp,$level, $pengguna_tentang, $linkedIdn
+	){
+		$hsl=$this->db->query("UPDATE tbl_pengguna set pengguna_nama='$nama',pengguna_jenkel='$jenkel',pengguna_username='$username',pengguna_password=md5('$password'),
+			pengguna_email='$email',pengguna_nohp='$nohp',pengguna_level='$level',
+			pengguna_tentang='$pengguna_tentang', pengguna_linkdin='$linkedIdn'
+			where pengguna_id='$kode'");
 		return $hsl;
 	}
 	//END UPDATE PENGGUNA//

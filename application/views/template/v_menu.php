@@ -31,14 +31,14 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link link text-white display-4" href="<?php echo base_url().'artikel'?>">
+					<a class="nav-link link text-white display-4" href="<?php echo base_url().'artikel/author/1'?>">
 						<span class="mbri-touch mbr-iconfont mbr-iconfont-btn"></span>
 						Soca Editorial
 						<br>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link link text-white display-4" href="<?php echo base_url().'artikel'?>">
+					<a class="nav-link link text-white display-4" href="<?php echo base_url().'artikel/author/2'?>">
 						<span class="mbri-users mbr-iconfont mbr-iconfont-btn"></span>
 						Columnis
 					</a>

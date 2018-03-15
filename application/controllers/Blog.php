@@ -80,6 +80,34 @@ class Blog extends CI_Controller{
 		$this->load->view('template/v_footer');
 	}
 
+	function author($authorId) {
+		$jum = $this->m_tulisan->getPostByAuthor($authorId);
+        $page = $this->uri->segment(4);
+        if(!$page):
+            $offset = 0;
+        else:
+            $offset = $page;
+        endif;
+        $limit = 5;
+        $config['base_url'] = base_url() . 'blog/author/'.$authorId.'/';
+        $config['total_rows'] = $jum->num_rows();
+        $x['total_rows'] = $jum->num_rows();
+        $config['per_page'] = $limit;
+        $config['uri_segment'] = 4;
+        $config['first_link'] = 'Awal';
+        $config['last_link'] = 'Akhir';
+        $config['next_link'] = 'Next >>';
+        $config['prev_link'] = '<< Prev';
+        $this->pagination->initialize($config);
+        $x['page'] = $this->pagination->create_links();
+		$x['data'] = $this->m_tulisan->getPostAuthorPerPage($authorId,$offset,$limit);
+		$x['authorId'] = $authorId;
+		$this->load->view('template/v_header');
+		$this->load->view('template/v_menu');
+		$this->load->view('v_blog', $x);
+		$this->load->view('template/v_footer');
+	}
+
 	function search(){
 		$keyword=str_replace("'", "", $this->input->post('xfilter',TRUE));
 		$x['data']=$this->m_tulisan->search_tulisan($keyword);

@@ -7,8 +7,8 @@
 
 $config['query_string_segment'] = 'start';
 
-$config['full_tag_open'] = '<ul class="pagination" style="margin-top:0px;">';
-$config['full_tag_close'] = '</ul>';
+$config['full_tag_open'] = '<div class="pagination__wrapper"> <ul class="pagination pagination-v1">';
+$config['full_tag_close'] = '</ul></div>';
 
 $config['first_link'] = 'First';
 $config['first_tag_open'] = '<li>';

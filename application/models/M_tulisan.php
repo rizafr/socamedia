@@ -29,9 +29,18 @@ class M_tulisan extends CI_Model{
 
 
 	//Front-End
-
 	function get_post_home(){
 		$hsl=$this->db->query("SELECT tbl_tulisan.*,DATE_FORMAT(tulisan_tanggal,'%d %M %Y') AS tanggal FROM tbl_tulisan ORDER BY tulisan_id DESC limit 8");
+		return $hsl;
+	}
+
+	function getPostByAuthor($level){
+		$hsl=$this->db->query("SELECT *, DATE_FORMAT(t.tulisan_tanggal,'%d %M %Y') AS tanggal FROM tbl_tulisan t, tbl_pengguna p where t.tulisan_pengguna_id=p.pengguna_id and p.pengguna_level='$level' ORDER BY t.tulisan_id DESC limit 8");
+		return $hsl;
+	}
+
+	function getPostAuthorPerPage($level,$offset,$limit){
+		$hsl=$this->db->query("SELECT *, DATE_FORMAT(t.tulisan_tanggal,'%d %M %Y') AS tanggal FROM tbl_tulisan t, tbl_pengguna p where t.tulisan_pengguna_id=p.pengguna_id and p.pengguna_level='$level' limit $offset,$limit");
 		return $hsl;
 	}
 
@@ -76,97 +85,96 @@ class M_tulisan extends CI_Model{
 
 
 	function count_views($kode){
-        $user_ip=$_SERVER['REMOTE_ADDR'];
-        $cek_ip=$this->db->query("SELECT * FROM tbl_post_views WHERE views_ip='$user_ip' AND views_tulisan_id='$kode' AND DATE(views_tanggal)=CURDATE()");
-        if($cek_ip->num_rows() <= 0){
-            $this->db->trans_start();
-				$this->db->query("INSERT INTO tbl_post_views (views_ip,views_tulisan_id) VALUES('$user_ip','$kode')");
-				$this->db->query("UPDATE tbl_tulisan SET tulisan_views=tulisan_views+1 where tulisan_id='$kode'");
+		$user_ip=$_SERVER['REMOTE_ADDR'];
+		$cek_ip=$this->db->query("SELECT * FROM tbl_post_views WHERE views_ip='$user_ip' AND views_tulisan_id='$kode' AND DATE(views_tanggal)=CURDATE()");
+		if($cek_ip->num_rows() <= 0){
+			$this->db->trans_start();
+			$this->db->query("INSERT INTO tbl_post_views (views_ip,views_tulisan_id) VALUES('$user_ip','$kode')");
+			$this->db->query("UPDATE tbl_tulisan SET tulisan_views=tulisan_views+1 where tulisan_id='$kode'");
 			$this->db->trans_complete();
 			if($this->db->trans_status()==TRUE){
 				return TRUE;
 			}else{
 				return FALSE;
 			}
-        }
-    }
+		}
+	}
 
-    //Count rating Good
-    function count_good($kode){
-        $user_ip=$_SERVER['REMOTE_ADDR'];
-        $cek_ip=$this->db->query("SELECT * FROM tbl_post_rating WHERE rate_ip='$user_ip' AND rate_tulisan_id='$kode'");
-        if($cek_ip->num_rows() <= 0){
-            $this->db->trans_start();
-				$this->db->query("INSERT INTO tbl_post_rating (rate_ip,rate_point,rate_tulisan_id) VALUES('$user_ip','1','$kode')");
-				$this->db->query("UPDATE tbl_tulisan SET tulisan_rating=tulisan_rating+1 where tulisan_id='$kode'");
+//Count rating Good
+	function count_good($kode){
+		$user_ip=$_SERVER['REMOTE_ADDR'];
+		$cek_ip=$this->db->query("SELECT * FROM tbl_post_rating WHERE rate_ip='$user_ip' AND rate_tulisan_id='$kode'");
+		if($cek_ip->num_rows() <= 0){
+			$this->db->trans_start();
+			$this->db->query("INSERT INTO tbl_post_rating (rate_ip,rate_point,rate_tulisan_id) VALUES('$user_ip','1','$kode')");
+			$this->db->query("UPDATE tbl_tulisan SET tulisan_rating=tulisan_rating+1 where tulisan_id='$kode'");
 			$this->db->trans_complete();
 			if($this->db->trans_status()==TRUE){
 				return TRUE;
 			}else{
 				return FALSE;
 			}
-        }
-    }
+		}
+	}
 
-    //Count rating Like
-    function count_like($kode){
-        $user_ip=$_SERVER['REMOTE_ADDR'];
-        $cek_ip=$this->db->query("SELECT * FROM tbl_post_rating WHERE rate_ip='$user_ip' AND rate_tulisan_id='$kode'");
-        if($cek_ip->num_rows() <= 0){
-            $this->db->trans_start();
-				$this->db->query("INSERT INTO tbl_post_rating (rate_ip,rate_point,rate_tulisan_id) VALUES('$user_ip','2','$kode')");
-				$this->db->query("UPDATE tbl_tulisan SET tulisan_rating=tulisan_rating+2 where tulisan_id='$kode'");
+//Count rating Like
+	function count_like($kode){
+		$user_ip=$_SERVER['REMOTE_ADDR'];
+		$cek_ip=$this->db->query("SELECT * FROM tbl_post_rating WHERE rate_ip='$user_ip' AND rate_tulisan_id='$kode'");
+		if($cek_ip->num_rows() <= 0){
+			$this->db->trans_start();
+			$this->db->query("INSERT INTO tbl_post_rating (rate_ip,rate_point,rate_tulisan_id) VALUES('$user_ip','2','$kode')");
+			$this->db->query("UPDATE tbl_tulisan SET tulisan_rating=tulisan_rating+2 where tulisan_id='$kode'");
 			$this->db->trans_complete();
 			if($this->db->trans_status()==TRUE){
 				return TRUE;
 			}else{
 				return FALSE;
 			}
-        }
-    }
+		}
+	}
 
-    //Count rating Like
-    function count_love($kode){
-        $user_ip=$_SERVER['REMOTE_ADDR'];
-        $cek_ip=$this->db->query("SELECT * FROM tbl_post_rating WHERE rate_ip='$user_ip' AND rate_tulisan_id='$kode'");
-        if($cek_ip->num_rows() <= 0){
-            $this->db->trans_start();
-				$this->db->query("INSERT INTO tbl_post_rating (rate_ip,rate_point,rate_tulisan_id) VALUES('$user_ip','3','$kode')");
-				$this->db->query("UPDATE tbl_tulisan SET tulisan_rating=tulisan_rating+3 where tulisan_id='$kode'");
+//Count rating Like
+	function count_love($kode){
+		$user_ip=$_SERVER['REMOTE_ADDR'];
+		$cek_ip=$this->db->query("SELECT * FROM tbl_post_rating WHERE rate_ip='$user_ip' AND rate_tulisan_id='$kode'");
+		if($cek_ip->num_rows() <= 0){
+			$this->db->trans_start();
+			$this->db->query("INSERT INTO tbl_post_rating (rate_ip,rate_point,rate_tulisan_id) VALUES('$user_ip','3','$kode')");
+			$this->db->query("UPDATE tbl_tulisan SET tulisan_rating=tulisan_rating+3 where tulisan_id='$kode'");
 			$this->db->trans_complete();
 			if($this->db->trans_status()==TRUE){
 				return TRUE;
 			}else{
 				return FALSE;
 			}
-        }
-    }
+		}
+	}
 
-    //Count rating Like
-    function count_genius($kode){
-        $user_ip=$_SERVER['REMOTE_ADDR'];
-        $cek_ip=$this->db->query("SELECT * FROM tbl_post_rating WHERE rate_ip='$user_ip' AND rate_tulisan_id='$kode'");
-        if($cek_ip->num_rows() <= 0){
-            $this->db->trans_start();
-				$this->db->query("INSERT INTO tbl_post_rating (rate_ip,rate_point,rate_tulisan_id) VALUES('$user_ip','4','$kode')");
-				$this->db->query("UPDATE tbl_tulisan SET tulisan_rating=tulisan_rating+4 where tulisan_id='$kode'");
+	function count_genius($kode){
+		$user_ip=$_SERVER['REMOTE_ADDR'];
+		$cek_ip=$this->db->query("SELECT * FROM tbl_post_rating WHERE rate_ip='$user_ip' AND rate_tulisan_id='$kode'");
+		if($cek_ip->num_rows() <= 0){
+			$this->db->trans_start();
+			$this->db->query("INSERT INTO tbl_post_rating (rate_ip,rate_point,rate_tulisan_id) VALUES('$user_ip','4','$kode')");
+			$this->db->query("UPDATE tbl_tulisan SET tulisan_rating=tulisan_rating+4 where tulisan_id='$kode'");
 			$this->db->trans_complete();
 			if($this->db->trans_status()==TRUE){
 				return TRUE;
 			}else{
 				return FALSE;
 			}
-        }
-    }
+		}
+	}
 
-    function cek_ip_rate($kode){
-    	$user_ip=$_SERVER['REMOTE_ADDR'];
-        $hsl=$this->db->query("SELECT * FROM tbl_post_rating WHERE rate_ip='$user_ip' AND rate_tulisan_id='$kode'");
-        return $hsl;
-    }
+	function cek_ip_rate($kode){
+		$user_ip=$_SERVER['REMOTE_ADDR'];
+		$hsl=$this->db->query("SELECT * FROM tbl_post_rating WHERE rate_ip='$user_ip' AND rate_tulisan_id='$kode'");
+		return $hsl;
+	}
 
 
-    function get_tulisan_populer(){
+	function get_tulisan_populer(){
 		$hasil=$this->db->query("SELECT tbl_tulisan.*,DATE_FORMAT(tulisan_tanggal,'%d %M %Y') AS tanggal FROM tbl_tulisan ORDER BY tulisan_views DESC limit 8");
 		return $hasil;
 	}
@@ -180,6 +188,6 @@ class M_tulisan extends CI_Model{
 		$hasil=$this->db->query("SELECT COUNT(tulisan_kategori_id) AS jml,kategori_id,kategori_nama FROM tbl_tulisan JOIN tbl_kategori ON tulisan_kategori_id=kategori_id GROUP BY tulisan_kategori_id");
 		return $hasil;
 	}
-	
+
 
 }

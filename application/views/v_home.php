@@ -28,19 +28,20 @@
 						<img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Mobirise" title="">
 					</div>
 					<div class="card-box">
-						<h4 class="card-title mbr-fonts-style display-4" style="font-size: 18px;line-height: 20px">
+						<h4 class="card-title">
 							<?php echo $post_judul;?>
-							<br>
-							<?php echo $post_tglpost.' | '.$post_author;?>
 						</h4>
-						<p class="mbr-text mbr-fonts-style display-4" style="padding-top: 5px">
+						<div class="article__info">
+							<?php echo $post_tglpost.' | '.$post_author;?>
+						</div>
+						<div class="card-content">
 							<?php echo limit_words($post_isi,15).'...';?>
-						</p>
+						</div>
 					</div>
-					<div class="mbr-section-btn text-center">
-						<a href="<?php echo base_url().'artikel/'.$post_slug;?>" class="btn btn-primary display-4">
+					 <div class="card-footer bg-transparent border-danger">
+					 	<a href="<?php echo base_url().'artikel/'.$post_slug;?>" class="btn btn-primary display-4">
 						Read more</a>
-					</div>
+					 </div>
 				</div>
 			</div>
 			<?php endforeach;?>
@@ -70,19 +71,20 @@
 						<img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Mobirise" title="">
 					</div>
 					<div class="card-box">
-						<h4 class="card-title mbr-fonts-style display-4" style="font-size: 18px;line-height: 20px">
+						<h4 class="card-title">
 							<?php echo $post_judul;?>
-							<br>
-							<?php echo $post_tglpost.' | '.$post_author;?>
 						</h4>
-						<p class="mbr-text mbr-fonts-style display-4" style="padding-top: 5px">
+						<div class="article__info">
+							<?php echo $post_tglpost.' | '.$post_author;?>
+						</div>
+						<div class="card-content">
 							<?php echo limit_words($post_isi,15).'...';?>
-						</p>
+						</div>
 					</div>
-					<div class="mbr-section-btn text-center">
-						<a href="<?php echo base_url().'artikel/'.$post_slug;?>" class="btn btn-primary display-4">
+					 <div class="card-footer bg-transparent border-danger">
+					 	<a href="<?php echo base_url().'artikel/'.$post_slug;?>" class="btn btn-primary display-4">
 						Read more</a>
-					</div>
+					 </div>
 				</div>
 			</div>
 			<?php endforeach;?>
