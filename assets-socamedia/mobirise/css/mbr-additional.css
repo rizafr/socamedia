@@ -1346,7 +1346,29 @@ pre {
 }
 .card-img {
     width: auto;
+    position: relative;
+    overflow: hidden;
+    height: 180px;
+    background-color: #000;
+    border-radius: 0;
 }
+
+.card-img::after {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.card-img .post_image {
+    width: auto;
+    height: 100%;
+    max-width: none;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
 .menu .navbar.collapsed:not(.beta-menu) {
     flex-direction: column;
 }

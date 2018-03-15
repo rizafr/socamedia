@@ -42,7 +42,7 @@ class Tulisan extends CI_Controller{
 	                        $config['image_library']='gd2';
 	                        $config['source_image']='./assets/images/'.$gbr['file_name'];
 	                        $config['create_thumb']= FALSE;
-	                        $config['maintain_ratio']= FALSE;
+	                        $config['maintain_ratio']= TRUE;
 	                        $config['quality']= '60%';
 	                        $config['width']= 840;
 	                        $config['height']= 450;
@@ -96,7 +96,7 @@ class Tulisan extends CI_Controller{
 	                        $config['image_library']='gd2';
 	                        $config['source_image']='./assets/images/'.$gbr['file_name'];
 	                        $config['create_thumb']= FALSE;
-	                        $config['maintain_ratio']= FALSE;
+	                        $config['maintain_ratio']= TRUE;
 	                        $config['quality']= '60%';
 	                        $config['width']= 840;
 	                        $config['height']= 450;

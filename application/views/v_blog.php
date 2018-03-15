@@ -29,7 +29,7 @@
                     <div class="card p-3 col-12 col-md-6 col-lg-3">
                         <div class="card-wrapper">
                             <div class="card-img">
-                                <img src="<?php echo base_url().'assets/images/'.$post_image;?>" alt="Mobirise" title="">
+                                <img class="post_image" src="<?php echo base_url().'assets/images/'.$post_image;?>">
                             </div>
                             <div class="card-box">
                                 <h4 class="card-title">

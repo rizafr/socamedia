@@ -50,8 +50,8 @@
 	           $pengguna_tentang=$i['pengguna_tentang'];
 	        ?>
             <div class="team-item col-lg-3 col-md-6">
-                <div class="item-image">
-                    <img src="<?php echo base_url().'assets/images/'.$pengguna_photo;?>">
+                <div class="card-img">
+                    <img class="post_image" src="<?php echo base_url().'assets/images/'.$pengguna_photo;?>">
                 </div>
                 <div class="item-caption py-3">
                     <div class="item-name px-2">
