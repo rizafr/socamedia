@@ -1,4 +1,5 @@
 <?php
+    $authorId = isset($authorId) ? $authorId : 0;
     if ($total_rows < 1): 
 ?>
     <section class="features3 cid-qLBesDqkEu" id="features3-p">

@@ -64,16 +64,16 @@ class M_tulisan extends CI_Model{
 	}
 
 	function get_tulisan_by_kategori($kategori_id){
-		$hsl=$this->db->query("SELECT tbl_tulisan.*,DATE_FORMAT(tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tulisan where tulisan_kategori_id='$kategori_id'");
+		$hsl=$this->db->query("SELECT p.pengguna_tentang, t.*,DATE_FORMAT(t.tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tulisan t, tbl_pengguna p where t.tulisan_pengguna_id=p.pengguna_id AND t.tulisan_kategori_id='$kategori_id'");
 		return $hsl;
 	}
 
 	function get_tulisan_by_kategori_perpage($kategori_id,$offset,$limit){
-		$hsl=$this->db->query("SELECT tbl_tulisan.*,DATE_FORMAT(tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tulisan where tulisan_kategori_id='$kategori_id' limit $offset,$limit");
+		$hsl=$this->db->query("SELECT p.pengguna_tentang, t.*,DATE_FORMAT(t.tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tulisan t, tbl_pengguna p where t.tulisan_pengguna_id=p.pengguna_id limit $offset,$limit");
 		return $hsl;
 	}
 
-	function search_tulisan($keyword){
+	function search_tulisan($keyword) {
 		$hsl=$this->db->query("SELECT tbl_tulisan.*,DATE_FORMAT(tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tulisan WHERE tulisan_judul LIKE '%$keyword%'");
 		return $hsl;
 	}

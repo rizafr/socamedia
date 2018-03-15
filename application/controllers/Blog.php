@@ -64,6 +64,7 @@ class Blog extends CI_Controller{
         $limit=5;
         $config['base_url'] = base_url() . 'blog/kategori/'.$kategori_id.'/';
         $config['total_rows'] = $jum->num_rows();
+        $x['total_rows'] = $jum->num_rows();
         $config['per_page'] = $limit;
         $config['uri_segment'] = 4;
         $config['first_link'] = 'Awal';
