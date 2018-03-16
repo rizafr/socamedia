@@ -42,7 +42,6 @@
 	           $pengguna_jenkel=$i['pengguna_jenkel'];
 	           $pengguna_email=$i['pengguna_email'];
 	           $pengguna_username=$i['pengguna_username'];
-	           $pengguna_password=$i['pengguna_password'];
 	           $pengguna_nohp=$i['pengguna_nohp'];
 	           $pengguna_level=$i['pengguna_level'];
                $pengguna_photo=$i['pengguna_photo'];

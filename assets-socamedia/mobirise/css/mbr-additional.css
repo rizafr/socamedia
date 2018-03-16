@@ -4457,6 +4457,44 @@ body {
     height: auto;
 }
 
+.author-info {
+    padding: 20px 0;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.author-info a {
+    color: #565a5c;
+}
+
+.author-info h3 {
+    font-size: 24px;
+}
+
+.author-info .photo {
+    width: 77px;
+    height: 77px;
+    float: left;
+    overflow: hidden;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.img-responsive.img-fill {
+    height: 100%;
+    width: 100%;
+    object-position: 50% 50%;
+    o-object-fit: cover;
+    object-fit: cover;
+}
+
+.author-info .bio {
+    float: left;
+    width: calc(100% - 97px);
+}
+
 .social-icons {
     width: 17px;
     height: 17px;

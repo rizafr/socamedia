@@ -10,6 +10,21 @@ $deskripsi=strip_tags($b['tulisan_isi']);
 $isi=$b['tulisan_isi'];
 $views=$b['tulisan_views'];
 $rating=$b['tulisan_rating'];
+$pengguna_id=$b['pengguna_id'];
+$pengguna_nama=$b['pengguna_nama'];
+$pengguna_jenkel=$b['pengguna_jenkel'];
+$pengguna_email=$b['pengguna_email'];
+$pengguna_username=$b['pengguna_username'];
+$pengguna_nohp=$b['pengguna_nohp'];
+$pengguna_level=$b['pengguna_level'];
+$pengguna_photo=$b['pengguna_photo'];
+$pengguna_linkdin=$b['pengguna_linkdin'];
+$pengguna_tentang=$b['pengguna_tentang'];
+ $level = [
+    1 => 'Administrator',
+    2 => 'Author',
+    3 => 'Advisor',
+];
 ?>
 
 <aside id="fh5co-hero" clsas="js-fullheight">
@@ -53,20 +68,44 @@ $rating=$b['tulisan_rating'];
 					</div>
 				<?php endif;?>
 				<h4>Share:
-				<span>
-					<a class="popup2 social-icons" href="https://plus.google.com/share?url=<?php echo $url; ?>" title="Bagikan ke Google+"><i class="fa fa-google-plus"></i></a>
-					<a class="popup2 social-icons" target="_parent" href="https://www.facebook.com/dialog/share?app_id=966242223397117&display=popup&href=<?php echo $url;?>" title="Bagikan ke Facebook"><i class="fa fa-facebook"></i></a>
-					<a class="popup2 social-icons" href="http://twitter.com/share?source=sharethiscom&text=<?php echo $b['tulisan_judul'];?>&url=<?php echo $url; ?>&via=badoey" title="Bagikan ke Twitter"><i class="fa fa-twitter"></i></a>
-					<a class="popup2 social-icons" href="javascript:void((function()%7Bvar%20e=document.createElement(&apos;script&apos;);e.setAttribute(&apos;type&apos;,&apos;text/javascript&apos;);e.setAttribute(&apos;charset&apos;,&apos;UTF-8&apos;);e.setAttribute(&apos;src&apos;,&apos;http://assets.pinterest.com/js/pinmarklet.js?r=&apos;+Math.random()*99999999);document.body.appendChild(e)%7D)());" title="Bagikan ke Pinterest"><i class="fa fa-pinterest"></i></a>
-				</span>
+					<span>
+						<a class="popup2 social-icons" href="https://plus.google.com/share?url=<?php echo $url; ?>" title="Bagikan ke Google+"><i class="fa fa-google-plus"></i></a>
+						<a class="popup2 social-icons" target="_parent" href="https://www.facebook.com/dialog/share?app_id=966242223397117&display=popup&href=<?php echo $url;?>" title="Bagikan ke Facebook"><i class="fa fa-facebook"></i></a>
+						<a class="popup2 social-icons" href="http://twitter.com/share?source=sharethiscom&text=<?php echo $b['tulisan_judul'];?>&url=<?php echo $url; ?>&via=badoey" title="Bagikan ke Twitter"><i class="fa fa-twitter"></i></a>
+						<a class="popup2 social-icons" href="javascript:void((function()%7Bvar%20e=document.createElement(&apos;script&apos;);e.setAttribute(&apos;type&apos;,&apos;text/javascript&apos;);e.setAttribute(&apos;charset&apos;,&apos;UTF-8&apos;);e.setAttribute(&apos;src&apos;,&apos;http://assets.pinterest.com/js/pinmarklet.js?r=&apos;+Math.random()*99999999);document.body.appendChild(e)%7D)());" title="Bagikan ke Pinterest"><i class="fa fa-pinterest"></i></a>
+					</span>
 				</h4>
+
+				<div class="author-info">
+					<h3>
+						Penulis:
+					</h3>
+					<div class="clearfix">
+						<div class="photo">
+							<img src="<?php echo base_url().'assets/images/'.$pengguna_photo;?>" class="img-responsive img-fill" alt="<?= $pengguna_nama?>">
+						</div>
+						<div class="bio">
+							<div class="author-name">
+								<a href="javascript:void(0)" class="name">
+									<?= $pengguna_nama?>
+								</a>
+								<a href="<?= prep_url($pengguna_linkdin);?>" target="_blank">
+                            <span class="p-1 socicon-linkedin socicon mbr-iconfont mbr-iconfont-social"></span>
+							</div>
+							<div class="author-intro">
+								<p><?= $pengguna_tentang; ?></p>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 			<?php $this->load->view('sidebar/sidebar', [
 				'kat' => $kat,
 				'populer' => $populer,
 				'terbaru' => $terbaru,
-			]);?>
-		</div>
+				]);?>
+			</div>
 
+		</div>
 	</div>
-</div>

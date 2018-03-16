@@ -59,7 +59,10 @@ class M_tulisan extends CI_Model{
 		return $hsl;
 	} 
 	function get_berita_by_slug($slug){
-		$hsl=$this->db->query("SELECT tbl_tulisan.*,DATE_FORMAT(tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tulisan where tulisan_slug='$slug'");
+		$hsl=$this->db->query("
+			SELECT p.*, t.*,DATE_FORMAT(t.tulisan_tanggal,'%d/%m/%Y') AS tanggal
+			FROM tbl_tulisan t, tbl_pengguna p where t.tulisan_pengguna_id=p.pengguna_id AND t.tulisan_slug='$slug'
+		");
 		return $hsl;
 	}
 
